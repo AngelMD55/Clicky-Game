@@ -1,0 +1,62 @@
+[
+    {
+        "id" : 1,
+        "image" : "./images/1.png",
+        "name" : "Daenerys Targaryen"
+    },
+    {
+        "id" : 2,
+        "image" : "https://i.imgur.com/qh9h3sy.jpg",
+        "name" : "Kahl Drogo"
+    },
+    {
+        "id" : 3,
+        "image" : "./images/3.png",
+        "name" : "George Martin"
+    },
+    {
+        "id" : 4,
+        "image" : "./images/4.jpg",
+        "name" : "Hodor"
+    },
+    {
+        "id" : 5,
+        "image" : "./images/5.jpg",
+        "name" : "Jeofrey Baratheon"
+    },
+    {
+        "id" : 6,
+        "image" : "./images/6.jpg",
+        "name" : "John Snow"
+    },
+    {
+        "id" : 7,
+        "image" : "./images/7.jpg",
+        "name" : "Margery Tyrell"
+    },
+    {
+        "id" : 8,
+        "image" : "./images/8.jpg",
+        "name" : "Samwell Tarley"
+    },
+    {
+        "id" : 9,
+        "image" : "./images/9.jpg",
+        "name" : "Sansa Stark"
+    },
+    {
+        "id" : 10,
+        "image" : "./images/10.jpg",
+        "name" : "The Hound"
+    },
+    {
+        "id" : 11,
+        "image" : "./images/11.jpg",
+        "name" : "Tyrion Lannister"
+    },
+    {
+        "id" : 12,
+        "image" : "./images/12.jpg",
+        "name" : "Ygritte"
+    }
+]
