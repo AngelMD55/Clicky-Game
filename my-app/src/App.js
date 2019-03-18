@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Navbar from "./components/Navbar/Navbar";
 import Jumbotron from "./components/Jumbotron/Jumbotron";
-import ImageCard from "./components/ImageCard/ImageCard"
+import ImageCard from "./components/ImageCard/ImageCard";
 import characters from "./characters.json";
 import './App.css';
 
-
+//App component 
 class App extends Component {
 
   state = {
@@ -13,50 +13,55 @@ class App extends Component {
     count: 0,
     selectedIds: [],
     highScore: 0
-  }
+  };
 
+//handles increment for the Counter component.
   handleIncrement = (id) => {
     this.setState({ count: this.state.count + 1 }, () => {
 
-      let matched = (this.state.selectedIds).includes(id)
+      let matched = (this.state.selectedIds).includes(id);
 
       if (matched) {
-        this.setState({ count: 0 })
+        this.setState({ count: 0 });
         this.onClearArray();
-        this.randomPics()
+        this.randomPics();
 
       } else {
-        this.pushIds(id)
-        this.renderHighestScore()
-        this.randomPics()
-      }
+        this.pushIds(id);
+        this.renderHighestScore();  
+        this.randomPics();
+      };
     });
   };
 
+  // Sets the highest score.
   renderHighestScore = () => {
     if (this.state.count >= this.state.highScore) {
-      this.setState({ highScore: this.state.count })
-    }
-  }
+      this.setState({ highScore: this.state.count }); 
+    };
+  };
 
+  //clear array of selectedIds when someone hits the same image more than once. 
   onClearArray = () => {
     this.setState({ selectedIds: [] });
   };
 
+  //pushes the image id to an array of selected images.
   pushIds = (id) => {
-    this.setState({ selectedIds: [...this.state.selectedIds, id] })
-  }
+    this.setState({ selectedIds: [...this.state.selectedIds, id] });
+  };
 
+  // shuffles the images 
   randomPics() {
-    let pictures = this.state.characters
+    let pictures = this.state.characters;
 
     for (let i = pictures.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [pictures[i], pictures[j]] = [pictures[j], pictures[i]];
-    }
-    this.setState({ characters: pictures })
+    };
+    this.setState({ characters: pictures });
     return pictures;
-  }
+  };
 
   render() {
     return (
@@ -78,12 +83,12 @@ class App extends Component {
                 id={character.id}
                 incrementCounter={() => this.handleIncrement(character.id)}
               />
-            ))}
+            ))};
           </div>
         </div>
       </div>
     );
-  }
-}
+  };
+};
 
 export default App;

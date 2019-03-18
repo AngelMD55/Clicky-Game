@@ -15,9 +15,8 @@ function Navbar(props) {
                     highScore = {props.highScore}
                 />
             </div>
-
         </nav>
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;
