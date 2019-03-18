@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navbar from "./components/Navbar/Navbar";
 import Jumbotron from "./components/Jumbotron/Jumbotron";
 import ImageCard from "./components/ImageCard/ImageCard";
+import Footer from "./components/Footer/Footer";
 import characters from "./characters.json";
 import './App.css';
 
@@ -15,20 +16,25 @@ class App extends Component {
     highScore: 0
   };
 
-//handles increment for the Counter component.
+  //handles increment for the Counter component.
   handleIncrement = (id) => {
     this.setState({ count: this.state.count + 1 }, () => {
 
       let matched = (this.state.selectedIds).includes(id);
+      let count = (this.state.count)
+      if (count === 12){
+        alert("You Win!!!")
+      }
 
       if (matched) {
         this.setState({ count: 0 });
         this.onClearArray();
         this.randomPics();
+        alert("You lose!!! Play again")
 
       } else {
         this.pushIds(id);
-        this.renderHighestScore();  
+        this.renderHighestScore();
         this.randomPics();
       };
     });
@@ -37,7 +43,7 @@ class App extends Component {
   // Sets the highest score.
   renderHighestScore = () => {
     if (this.state.count >= this.state.highScore) {
-      this.setState({ highScore: this.state.count }); 
+      this.setState({ highScore: this.state.count });
     };
   };
 
@@ -66,14 +72,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-      <div>
-        <Navbar count={this.state.count}
+        <div>
+          <Navbar count={this.state.count}
             highScore={this.state.highScore}
-        />
-      </div>
-      <div  style={{paddingTop: "73px"}}>
-        <Jumbotron />
-      </div>  
+          />
+        </div>
+        <div style={{ paddingTop: "73px" }}>
+          <Jumbotron />
+          <p id="lost" style={{ display: "none", color:"red" }}>You lose!! please try again</p>
+          <p id="win" style={{ display: "none", color: "red" }}>You win!!!</p>
+        </div>
         <div className="container">
           <div id="imgContainer" className="justify-content-center align-self-center">
             {this.state.characters.map(character => (
@@ -86,7 +94,9 @@ class App extends Component {
             ))};
           </div>
         </div>
+        <Footer />
       </div>
+
     );
   };
 };
