@@ -3,7 +3,7 @@ import React from 'react'
 function ImageCard(props) {
     return (
         <div >
-            <img alt={props.name} id={props.id} src={props.image} style={imageStyle} onClick={props.incrementCounter.bind(this)} />
+            <img alt={props.name} id={props.id} src={props.image} style={imageStyle} onClick={props.incrementCounter} />
         </div>
     )
 }
